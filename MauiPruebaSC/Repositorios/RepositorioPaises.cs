@@ -12,6 +12,8 @@ namespace MauiPruebaSC.Repositorios
     {
         SQLiteConnection coneccion;
 
+        public string mensajeestado {  get; set; }
+
         public RepositorioPaises()
         {
 
@@ -22,15 +24,17 @@ namespace MauiPruebaSC.Repositorios
 
         public void Add(Paisesp1ViewModel nuevoPais)
         {
+            int result = 0;
             try
             {
-
-                coneccion .Insert(nuevoPais);
+                result=coneccion.Insert(nuevoPais);
+                mensajeestado=
+                $"{result} row(s) added";
             }
             catch(Exception ex)
             {
-            
-                
+            mensajeestado=
+                $"Error: {ex.Message}";
             }
         }
             
