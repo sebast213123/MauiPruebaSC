@@ -8,7 +8,7 @@ namespace MauiPruebaSC.ViewModels
     public class Paisesp1ViewModel : INotifyPropertyChanged
     {
         [PrimaryKey,AutoIncrement] 
-        private int _ID {  get; set; }
+        public int _ID {  get; set; }
         [Column("nombrepais"),Indexed]
         private string? _NombrePaisSebastianCadena {  get; set; }
 

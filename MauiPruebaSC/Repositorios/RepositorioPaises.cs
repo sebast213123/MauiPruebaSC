@@ -14,7 +14,7 @@ namespace MauiPruebaSC.Repositorios
 
         public string mensajeestado {  get; set; }
 
-        public RepositorioPaises()
+        public RepositorioPaises() 
         {
 
             coneccion = new SQLiteConnection(Constants.PathBaseDatos,Constants.Flags);
@@ -23,6 +23,8 @@ namespace MauiPruebaSC.Repositorios
         }
 
         public void Add(Paisesp1ViewModel nuevoPais)
+
+
         {
             int result = 0;
             try
@@ -38,6 +40,36 @@ namespace MauiPruebaSC.Repositorios
             }
         }
             
+        public List<Paisesp1ViewModel> GetAll()
+        {
+            try
+            {
+                return coneccion.Table<Paisesp1ViewModel>().ToList();
+            }
+            catch(Exception ex)
+            {
+                mensajeestado =
+                $"Error: {ex.Message}";
+            }
+            return null;
 
+        }
+
+        public Paisesp1ViewModel Get(int id)
+        {
+
+            try
+            {
+                return
+                    coneccion.Table<Paisesp1ViewModel>()
+                    .FirstOrDefault(x=> x._ID==id);
+            }
+
+            catch(Exception ex)
+            {
+                mensajeestado =
+                $"Error: {ex.Message}";
+            }
+            return null;
     }
 }
