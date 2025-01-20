@@ -2,28 +2,27 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiPruebaSC.Pagina1"
+             
+
              Title="Buscador de Países">
-    
+
     <StackLayout Padding="20" Spacing="10">
         <Entry 
             x:Name="scadena_entryPais" 
             Placeholder="Ingrese el nombre del país"
-            BackgroundColor="Aqua"   
-               />
-        
-        
-        
+            BackgroundColor="Aqua" />
+
         <Button 
             x:Name="scadena_btnBuscar" 
-            Text="Buscar" Clicked="Buscar_Clicked" 
-            BackgroundColor="Pink"
-            />
-        
+            Text="Buscar" 
+            Clicked="Buscar_Clicked" 
+            BackgroundColor="Pink" />
+
         <Button 
             x:Name="scadena_btnLimpiar" 
-            Text="Limpiar"
+            Text="Limpiar" 
             Clicked="Limpiar_Clicked"
-            BackgroundColor="Brown"/>
-        
+            BackgroundColor="Brown" />
     </StackLayout>
 </ContentPage>
+
