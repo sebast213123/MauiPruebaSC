@@ -1,57 +1,29 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:MauiPruebaSC.ViewModels"
-
              x:Class="MauiPruebaSC.Pagina1"
-             Title="Prueba Progreso 3"
-             BackgroundColor="AntiqueWhite">
+             Title="Buscador de Países">
     
-    
-
-    <ContentPage.BindingContext>
-        <local:Paisesp1ViewModel/>
-    </ContentPage.BindingContext>
-    
-    <VerticalStackLayout>
-        <Label
-            Text="PRUEBA SEBASTIAN CADENA"
-            TextColor="DarkGreen"
-            BackgroundColor="Gold"
-            Padding="20"
-            FontSize="Medium"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-
-
-
-        <Button
-            
-            Text="Buscar Pais Por nombre"
-            WidthRequest="300"
-            TextColor="LemonChiffon"
-            BackgroundColor="Crimson"
-            Padding="10"
-            FontSize="Medium">
-            
-            
-        </Button>
-
-        <Button
-    
-            Text="Limpiar Campo de Texto"
-            WidthRequest="300"
-            TextColor="DarkBlue"
-            BackgroundColor="Ivory"
-            Padding="10"
-            FontSize="Medium">
-            
-
-        </Button>
-
-
-    </VerticalStackLayout>
-    
-    
-    
+    <StackLayout Padding="20" Spacing="10">
+        <Entry 
+            x:Name="scadena_entryPais" 
+            Placeholder="Ingrese el nombre del país"
+            BackgroundColor="Aqua"   
+               />
+        
+        
+        
+        <Button 
+            x:Name="scadena_btnBuscar" 
+            Text="Buscar" Clicked="Buscar_Clicked" 
+            BackgroundColor="Pink"
+            />
+        
+        <Button 
+            x:Name="scadena_btnLimpiar" 
+            Text="Limpiar"
+            Clicked="Limpiar_Clicked"
+            BackgroundColor="Brown"/>
+        
+    </StackLayout>
 </ContentPage>
