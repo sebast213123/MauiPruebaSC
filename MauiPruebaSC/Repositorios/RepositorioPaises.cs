@@ -1,77 +1,33 @@
-﻿using MauiPruebaSC.ViewModels;
-using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SQLite;
 
-namespace MauiPruebaSC.Repositorios
+public class PaisModel
 {
-    public class RepositorioPaises
+    [PrimaryKey, AutoIncrement]
+    public int Id { get; set; }
+    public string NombreOficial { get; set; }
+    public string Region { get; set; }
+    public string LinkMaps { get; set; }
+    public string NombreBD { get; set; }
+}
+
+public class SQLiteRepository
+{
+    private SQLiteConnection _database;
+
+    public SQLiteRepository(string dbPath)
     {
-        SQLiteConnection coneccion;
+        _database = new SQLiteConnection(dbPath);
+        _database.CreateTable<PaisModel>();
+    }
 
-        public string mensajeestado {  get; set; }
+    public void GuardarPais(PaisModel pais)
+    {
+        _database.Insert(pais);
+    }
 
-        public RepositorioPaises() 
-        {
-
-            coneccion = new SQLiteConnection(Constants.PathBaseDatos,Constants.Flags);
-
-            coneccion.CreateTable<Paisesp1ViewModel>();
-        }
-
-        public void Add(Paisesp1ViewModel nuevoPais)
-
-
-        {
-            int result = 0;
-            try
-            {
-                result=coneccion.Insert(nuevoPais);
-                mensajeestado=
-                $"{result} row(s) added";
-            }
-            catch(Exception ex)
-            {
-            mensajeestado=
-                $"Error: {ex.Message}";
-            }
-        }
-            
-        public List<Paisesp1ViewModel> GetAll()
-        {
-            try
-            {
-                return coneccion.Table<Paisesp1ViewModel>().ToList();
-            }
-            catch(Exception ex)
-            {
-                mensajeestado =
-                $"Error: {ex.Message}";
-            }
-            return null;
-
-        }
-
-        public Paisesp1ViewModel Get(int id)
-        {
-
-            try
-            {
-                return
-                    coneccion.Table<Paisesp1ViewModel>()
-                    .FirstOrDefault(x=> x._ID==id);
-            }
-
-            catch(Exception ex)
-            {
-                mensajeestado =
-                $"Error: {ex.Message}";
-            }
-            return null;
-    
-        }
+    public List<PaisModel> ObtenerPaises()
+    {
+        return _database.Table<PaisModel>().ToList();
     }
 }
+
