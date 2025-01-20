@@ -19,6 +19,20 @@ namespace MauiPruebaSC.Repositorios
 
             coneccion.CreateTable<Paisesp1ViewModel>();
         }
+
+        public void Add(Paisesp1ViewModel nuevoPais)
+        {
+            try
+            {
+
+                coneccion .Insert(nuevoPais);
+            }
+            catch(Exception ex)
+            {
+            
+                
+            }
+        }
             
 
     }
