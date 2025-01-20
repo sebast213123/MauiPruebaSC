@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using MauiPruebaSC.ViewModels;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace MauiPruebaSC.Repositorios
         {
 
             coneccion = new SQLiteConnection(Constants.PathBaseDatos,Constants.Flags);
+
+            coneccion.CreateTable<Paisesp1ViewModel>();
         }
             
 
